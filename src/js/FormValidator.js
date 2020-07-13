@@ -1,6 +1,7 @@
 class FormValidator {
-  constructor(form) {
+  constructor(form, errorMessages) {
     this.form = form;
+    this.errorMessages = errorMessages;
   }
 
   checkFormValidity = () => {
@@ -14,11 +15,11 @@ class FormValidator {
   checkInputValidity = input => {
     let errorMessage = "";
     if (input.validity.valueMissing) {
-      errorMessage = errorMessages.requiredField;
+      errorMessage = this.errorMessages.requiredField;
     } else if (input.type === "url" && input.validity.patternMismatch) {
-      errorMessage = errorMessages.noLink;
+      errorMessage = this.errorMessages.noLink;
     } else if (input.validity.tooLong || input.validity.tooShort) {
-      errorMessage = errorMessages.specifiedInterval;
+      errorMessage = this.errorMessages.specifiedInterval;
     } else {
       errorMessage = "";
     }
@@ -63,3 +64,5 @@ class FormValidator {
     return this.checkFormValidity().every(item => { return item.valid });
   };
 }
+
+export default FormValidator;

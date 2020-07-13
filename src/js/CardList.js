@@ -16,3 +16,5 @@ class CardList {
     this.placesList.appendChild(placeCard);
   }
 }
+
+export default CardList;

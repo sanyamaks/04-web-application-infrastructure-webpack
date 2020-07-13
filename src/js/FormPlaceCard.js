@@ -1,3 +1,5 @@
+import Form from "./Form.js"
+
 class FormPlaceCard extends Form {
   constructor(form, formValidator, popup, api, cardList) {
     super(form, formValidator, popup, api);
@@ -16,3 +18,5 @@ class FormPlaceCard extends Form {
       .finally(() => this.renderLoading(false));
   }
 }
+
+export default FormPlaceCard;
