@@ -44,9 +44,7 @@ const createCard = card => {
 };
 
 const API_URL =
-  process.env.NODE_ENV === "production"
-    ? "https://praktikum.tk"
-    : "http://praktikum.tk";
+  NODE_ENV === "production" ? "https://praktikum.tk" : "http://praktikum.tk";
 const api = new Api({
   baseUrl: API_URL + "/cohort11",
   headers: {

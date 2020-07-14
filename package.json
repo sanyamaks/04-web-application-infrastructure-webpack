@@ -5,7 +5,7 @@
   "main": "./src/index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --mode development --open --watch",
-    "build": "cross-env NODE_ENV=production rimraf dist && webpack --mode production",
+    "build": "rimraf dist && cross-env NODE_ENV=production webpack --mode production",
     "deploy": "cross-env NODE_ENV=production gh-pages -d dist"
   },
   "repository": {
@@ -45,13 +45,5 @@
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "core-js": "^3.4.1"
-  },
-  "babel": {
-    "presets": [
-      "@babel/preset-env"
-    ],
-    "plugins": [
-      "@babel/plugin-proposal-class-properties"
-    ]
   }
 }
