@@ -1,3 +1,15 @@
+import Api from "./js/Api.js";
+import Card from "./js/Card.js";
+import CardList from "./js/CardList.js";
+import { errorMessages } from "./js/errorMessages.js";
+import FormAvatar from "./js/FormAvatar.js";
+import FormPlaceCard from "./js/FormPlaceCard.js";
+import FormProfile from "./js/FormProfile.js";
+import FormValidator from "./js/FormValidator.js";
+import Popup from "./js/Popup.js";
+import UserInfo from "./js/UserInfo.js";
+import "./pages/index.css";
+
 const openPopupPlaceCardButton = document.querySelector(
   ".button.user-info__button"
 );
@@ -22,16 +34,19 @@ const popupImageObj = new Popup(popupImage);
 popupImageObj.setCloseButtonListeners();
 const popupAvatarObj = new Popup(popupAvatar);
 popupAvatarObj.setCloseButtonListeners();
-const formValidatorProfile = new FormValidator(formProfile);
-const formValidatorPlaceCard = new FormValidator(formPlaceCard);
-const formValidatorAvatar = new FormValidator(formAvatar);
+const formValidatorProfile = new FormValidator(formProfile, errorMessages);
+const formValidatorPlaceCard = new FormValidator(formPlaceCard, errorMessages);
+const formValidatorAvatar = new FormValidator(formAvatar, errorMessages);
 const userInfo = new UserInfo(fullName, job, avatar);
 
 const createCard = card => {
   return new Card(card, handleOpenPopupImage);
 };
+
+const API_URL =
+  NODE_ENV === "production" ? "https://praktikum.tk" : "http://praktikum.tk";
 const api = new Api({
-  baseUrl: "https://praktikum.tk/cohort11",
+  baseUrl: API_URL + "/cohort11",
   headers: {
     authorization: "4f5e3621-964f-4d58-88fd-12f1d002534a",
     "Content-Type": "application/json"
@@ -110,13 +125,6 @@ api
 api
   .getInitialCards()
   .then(cards => {
-
-    /*REVIEW.'Можно ли так передавать ID?' Смотря какие цели Вы преследуете (я не совсем тщательно разбиралась в коде дополнительных заданий).
-    При передаче как аргумента свойства класса UserInfo userInfo.userID (что технически можно, конечно, делать), Вы на каждом шаге рендера будете получать
-    один и тот же свой id, который Вы получили при предыдущем запросе с помощью api.getUserInfo и, если именно это Вам нужно - можно. Но, при запросе
-    api.getInitialCards Вы получаете массив cards, в котором есть id пользователя-собственника для каждой карточки, и его так же при рендере можно явно
-    использовать, как cards.owner._id.  */
-
     cardList.renderCards(cards, userInfo.userID); //АМ: Можно ли так передавать ID? /
   })
   .catch(err => console.log(err));

@@ -116,3 +116,5 @@ class Card {
     return this.cardInfo.likes.some(item => item._id === this.userID);
   }
 }
+
+export default Card;

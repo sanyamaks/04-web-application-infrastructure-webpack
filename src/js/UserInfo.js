@@ -1,5 +1,5 @@
 class UserInfo {
-  constructor(fullName, job) {
+  constructor(fullName, job, avatar) {
     this.fullName = fullName;
     this.job = job;
     this.avatar = avatar;
@@ -21,3 +21,5 @@ class UserInfo {
     this.avatar.style.backgroundImage = `url(${avatar})`;
   }
 }
+
+export default UserInfo;

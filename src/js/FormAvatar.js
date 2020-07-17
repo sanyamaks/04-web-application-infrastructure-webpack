@@ -1,3 +1,5 @@
+import Form from "./Form.js"
+
 class FormAvatar extends Form {
   constructor(form, formValidator, popup, api, userInfo) {
     super(form, formValidator, popup, api);
@@ -16,3 +18,5 @@ class FormAvatar extends Form {
       .finally(() => this.renderLoading(false));
   }
 }
+
+export default FormAvatar;

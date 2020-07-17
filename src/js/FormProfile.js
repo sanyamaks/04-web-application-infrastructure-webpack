@@ -1,3 +1,5 @@
+import Form from "./Form.js"
+
 class FormProfile extends Form {
   constructor(form, formValidator, popup, api, userInfo) {
     super(form, formValidator, popup, api);
@@ -20,3 +22,5 @@ class FormProfile extends Form {
       .finally(() => this.renderLoading(false));
   }
 }
+
+export default FormProfile;
