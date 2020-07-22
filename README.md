@@ -1,8 +1,9 @@
 # Инфраструктура Веб-приложений. Вебпак. (Яндекс.Практикум. Проектная работа №11)
-Версия 0.0.1
+![Превью](https://i.ibb.co/dJ9h3NB/3.png)
 
 ## О проекте:
-Демо проект для демонстрации настройки webpack
+Копия проекта [Mesto](https://github.com/sanyamaks/03-praktikum-javascript-theory-and-practice)
+Учебный проект для практической тренировки настройки webpack'a.
 
 ## Стэк технологий:
 HTML5, CSS3, BEM, ES6, OOP, Webpack, Babel
