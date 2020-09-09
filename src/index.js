@@ -44,12 +44,12 @@ const createCard = card => {
 };
 
 const API_URL =
-  NODE_ENV === "production" ? "https://praktikum.tk" : "http://praktikum.tk";
+  NODE_ENV === "production" ? "https://www.aleksmaksimov.tk" : "http://www.aleksmaksimov.tk";
 const api = new Api({
-  baseUrl: API_URL + "/cohort11",
+  baseUrl: API_URL,
   headers: {
-    authorization: "4f5e3621-964f-4d58-88fd-12f1d002534a",
-    "Content-Type": "application/json"
+    authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjU4YTJkY2JlNmI1NzM1OWY1M2M1OGIiLCJpYXQiOjE1OTk2NDQzODMsImV4cCI6MTYwMDI0OTE4M30.l-n-7_O0Eae8fugvVTHkVNdKFJxd8X82sWTXcUz-Z8g",
+    "Content-Type": "application/json",
   }
 });
 const cardList = new CardList(placeList, createCard, api);
@@ -128,3 +128,5 @@ api
     cardList.renderCards(cards, userInfo.userID); //АМ: Можно ли так передавать ID? /
   })
   .catch(err => console.log(err));
+
+

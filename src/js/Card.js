@@ -105,10 +105,14 @@ class Card {
   }
 
   setRemoveButton() {
-    if (this.cardInfo.owner._id === this.userID) {
-      this.card
-        .querySelector(".place-card__delete-icon")
-        .classList.add("place-card__delete-icon_enable");
+    if (!this.cardInfo.owner) {
+      return null
+    }
+      if (this.cardInfo.owner._id === this.userID) {
+        this.card
+          .querySelector(".place-card__delete-icon")
+          .classList.add("place-card__delete-icon_enable");
+
     }
   }
 

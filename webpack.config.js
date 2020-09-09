@@ -14,12 +14,17 @@ module.exports = {
   },
   module: {
     rules: [
+      // {
+      //   test: /\.js$/,
+      //   enforce: 'pre',
+      //   use: ['source-map-loader'],
+      // },
+
       {
         test: /\.js$/,
         exclude: /node_modules/,
         use: { loader: "babel-loader" }
-      },
-      {
+      },{
         test: /\.css$/,
         use: [
           isDev ? "style-loader" : MiniCssExtractPlugin.loader,
@@ -49,6 +54,7 @@ module.exports = {
       }
     ]
   },
+  devtool: 'inline-source-map',
   plugins: [
     new HtmlWebpackPlugin({
       inject: false,

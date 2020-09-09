@@ -9,7 +9,7 @@ class Api {
       headers: this.options.headers
     }).then(res => {
       return this.isResolve(res);
-    });
+    }).then((res) => res.data);
   }
 
   getUserInfo() {
@@ -17,7 +17,7 @@ class Api {
       headers: this.options.headers
     }).then(res => {
       return this.isResolve(res);
-    });
+    }).then((res) => res.data);;
   }
 
   updateUserInfo(userInfo) {
@@ -27,7 +27,7 @@ class Api {
       body: JSON.stringify(userInfo)
     }).then(res => {
       return this.isResolve(res);
-    });
+    }).then((res) => res.data);;
   }
 
   addCard(card) {
@@ -37,7 +37,7 @@ class Api {
       body: JSON.stringify(card)
     }).then(res => {
       return this.isResolve(res);
-    });
+    }).then((res) => res.data);;
   }
 
   removeCard(cardID) {
@@ -46,25 +46,25 @@ class Api {
       headers: this.options.headers
     }).then(res => {
       return this.isResolve(res);
-    });
+    }).then((res) => res.data);;
   }
 
   putLike(cardID) {
-    return fetch(this.options.baseUrl + "/cards/like/" + cardID, {
+    return fetch(this.options.baseUrl + "/cards/" + cardID + "/likes", {
       method: "PUT",
       headers: this.options.headers
     }).then(res => {
       return this.isResolve(res);
-    });
+    }).then((res) => res.data);;
   }
 
   removeLike(cardID) {
-    return fetch(this.options.baseUrl + "/cards/like/" + cardID, {
+    return fetch(this.options.baseUrl + "/cards/" + cardID + "/likes", {
       method: "DELETE",
       headers: this.options.headers
     }).then(res => {
       return this.isResolve(res);
-    });
+    }).then((res) => res.data);;
   }
 
   updateUserAvatar(linkAvatar) {
@@ -74,10 +74,10 @@ class Api {
       body: JSON.stringify(linkAvatar)
     }).then(res => {
       return this.isResolve(res);
-    });
+    }).then((res) => res.data);;
   }
 
-  isResolve(res) {
+  async isResolve(res) {
     if (res.ok) {
       return res.json();
     } else {
